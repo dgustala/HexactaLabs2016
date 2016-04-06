@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapacitacionMVC.FrontEnd", "CapacitacionMVC.FrontEnd\CapacitacionMVC.FrontEnd.csproj", "{887C95C6-5C16-459A-98E8-04C6341A5091}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapacitacionMVC.Entities", "CapacitacionMVC.Entities\CapacitacionMVC.Entities.csproj", "{28E0981B-151E-487D-9C2E-05D0A224E728}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{887C95C6-5C16-459A-98E8-04C6341A5091}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{887C95C6-5C16-459A-98E8-04C6341A5091}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{887C95C6-5C16-459A-98E8-04C6341A5091}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28E0981B-151E-487D-9C2E-05D0A224E728}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28E0981B-151E-487D-9C2E-05D0A224E728}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28E0981B-151E-487D-9C2E-05D0A224E728}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28E0981B-151E-487D-9C2E-05D0A224E728}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

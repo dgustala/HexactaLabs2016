@@ -1,0 +1,26 @@
+﻿@model CapacitacionMVC.FrontEnd.Models.GenresViewModel
+<h1>Genres</h1>
+
+<div class="col-sm-12">
+    @using (Html.BeginForm("Search", "Genre"))
+    {
+        <div class="form-group">
+            @Html.Label("Nombre")
+            @Html.TextBoxFor(m => m.NameFilter, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <button type="submit">Search</button>
+        </div>
+    }
+</div>
+
+<div class="col-sm-12">
+    @{
+        foreach (var genre in Model.Genres)
+        {
+            <div class="row">
+                <div class="col-sm-12">@genre</div>
+            </div>
+        }
+    }
+</div>
