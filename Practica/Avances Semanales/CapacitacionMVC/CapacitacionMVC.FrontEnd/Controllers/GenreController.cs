@@ -23,6 +23,15 @@ namespace CapacitacionMVC.FrontEnd.Controllers
                 ? CreateGenres()
                 : CreateGenres().Where(x => x == genreVM.NameFilter).ToList();
 
+            var temporal = CreateGenres();
+
+            temporal.FindAll(e => e.Equals("Hexacta"));
+            temporal.First();
+            temporal.First(e => e.Equals("Hexacta"));
+            temporal.FirstOrDefault(e => e.Equals("Hexacta"));
+            temporal.Any(e => e.Equals("Hexacta"));
+
+
             return View("Index", genreVM);
         }
 
