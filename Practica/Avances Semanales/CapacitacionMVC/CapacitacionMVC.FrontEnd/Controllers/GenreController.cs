@@ -1,47 +1,59 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Web.Mvc;
+using CapacitacionMVC.Entities;
 using CapacitacionMVC.FrontEnd.Models;
+using CapacitacionMVC.Services;
 
 namespace CapacitacionMVC.FrontEnd.Controllers
 {
     public class GenreController : Controller
     {
+        private readonly IGenresService _genresSvc;
+
+        public GenreController()
+        {
+            this._genresSvc = new GenresService();
+        }
+
+        private IList<Genre> Genres
+        {
+            get
+            {
+                // In memory objects
+                //GenresViewModel genresVM = new GenresViewModel() { Genres = CreateGenresList() };
+
+                // From database
+                return this._genresSvc.GetGenres();
+            }
+        }
+
         //
         // GET: /Genre/
         public ActionResult Index()
         {
-            var genres = new GenresViewModel();
-            genres.Genres = CreateGenres();
-            return View(genres);
+            var viewModel = new GenresViewModel { Genres = this.Genres };
+            return View(viewModel);
         }
 
         [HttpPost]
         public ActionResult Search(GenresViewModel genreVM)
         {
-            genreVM.Genres = string.IsNullOrWhiteSpace(genreVM.NameFilter)
-                ? CreateGenres()
-                : CreateGenres().Where(x => x == genreVM.NameFilter).ToList();
+            if (string.IsNullOrWhiteSpace(genreVM.SearchValue))
+            {
+                genreVM.Genres = this.Genres;
+            }
+            else
+            {
+                // In memory objects
+                //genreVM.Genres = this.Genres.Where(p =>
+                //    p.Name.ToLower().StartsWith(genreVM.SearchValue.ToLower().Trim()))
+                //    .ToList();
 
-            var temporal = CreateGenres();
-
-            temporal.FindAll(e => e.Equals("Hexacta"));
-            temporal.First();
-            temporal.First(e => e.Equals("Hexacta"));
-            temporal.FirstOrDefault(e => e.Equals("Hexacta"));
-            temporal.Any(e => e.Equals("Hexacta"));
-
+                // From database
+                genreVM.Genres = this._genresSvc.SearchGenres(genreVM.SearchValue);
+            }
 
             return View("Index", genreVM);
         }
-
-        private List<string> CreateGenres()
-        {
-            return new List<string>
-            {
-                "Drama", "Comedia", "Terror"
-            };
-        } 
-
 	}
 }

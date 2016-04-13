@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
+using CapacitacionMVC.Entities;
 
 namespace CapacitacionMVC.FrontEnd.Models
 {
     public class GenresViewModel
     {
-        public List<string> Genres { get; set; }
-
-        public string NameFilter { get; set; }
+        public IList<Genre> Genres { get; set; }
+        
+        [DisplayName("Search genre")]
+        public string SearchValue { get; set; }
     }
 }

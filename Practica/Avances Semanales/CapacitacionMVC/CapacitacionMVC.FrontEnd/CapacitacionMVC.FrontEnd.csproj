@@ -242,6 +242,16 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapacitacionMVC.Entities\CapacitacionMVC.Entities.csproj">
+      <Project>{28e0981b-151e-487d-9c2e-05d0a224e728}</Project>
+      <Name>CapacitacionMVC.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapacitacionMVC.Services\CapacitacionMVC.Services.csproj">
+      <Project>{629ac2f2-40e4-4b05-b0cf-b61bd002654a}</Project>
+      <Name>CapacitacionMVC.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
